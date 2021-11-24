@@ -1,4 +1,4 @@
-import { Axios } from "axios";
+import axios from "axios";
 
 export const FETCH_POKEMON_REQUEST = 'FETCH_POKEMON_REQUEST';
 export const FETCH_POKEMON_SUCCESS = 'FETCH_POKEMON_SUCCESS';
@@ -27,7 +27,7 @@ export const fetchPokemonFailure = (error) => {
 const fetchPokemon = (valor) => {
     return (dispatch) => {
        dispatch(fetchPokemonRequest());
-       Axios.get(`https://pokeapi.co/api/v2/pokemon/${valor}`)
+       axios.get(`https://pokeapi.co/api/v2/pokemon/${valor}`)
          .then(response => {
              dispatch(fetchPokemonSuccess([response.data]));
          })
